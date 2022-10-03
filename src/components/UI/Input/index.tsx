@@ -22,7 +22,7 @@ export const Input: FC<InputTypeProps> = ({ type, value, price,disabled, ...rest
     if (type === 'initial') {
         return (
             <InitialDepositInput
-                price={formattedInitialDeposit}
+                price={`${formattedInitialDeposit} ₽`}
                 value={dividedValue}
                 type={type}
                 focusHandler={focusHandler}

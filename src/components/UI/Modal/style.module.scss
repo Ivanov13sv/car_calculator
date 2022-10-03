@@ -26,6 +26,7 @@
 
     .modal {
         @include scrollbar;
+        scrollbar-width: 30px;
         padding: 0 20px;
         overflow: auto;
         width: 90vw;

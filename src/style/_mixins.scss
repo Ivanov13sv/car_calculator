@@ -10,7 +10,6 @@
 }
 
 @mixin scrollbar {
-    scrollbar-color: var(--accent) #ebe7ff;
     &::-webkit-scrollbar {
         width: 8px;
         height: 8px;
