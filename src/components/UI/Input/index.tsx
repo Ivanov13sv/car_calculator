@@ -3,7 +3,13 @@ import { InitialDepositInputProps, InputTypeProps } from 'types/IInput';
 import { getInitialDeposit, numberWithSpaces } from 'utils';
 import styles from './style.module.scss';
 
-export const Input: FC<InputTypeProps> = ({ type, value, price,disabled, ...rest }) => {
+export const Input: FC<InputTypeProps> = ({
+    type,
+    value,
+    price,
+    disabled,
+    ...rest
+}) => {
     const [isFocus, setFocus] = useState(false);
 
     const dividedValue = numberWithSpaces(value);
@@ -22,7 +28,7 @@ export const Input: FC<InputTypeProps> = ({ type, value, price,disabled, ...rest
     if (type === 'initial') {
         return (
             <InitialDepositInput
-                price={`${formattedInitialDeposit} ₽`}
+                price={formattedInitialDeposit}
                 value={dividedValue}
                 type={type}
                 focusHandler={focusHandler}
@@ -34,7 +40,13 @@ export const Input: FC<InputTypeProps> = ({ type, value, price,disabled, ...rest
     }
 
     return (
-        <div className={disabled? `${inputClasses} ${styles.field__disabled}` : inputClasses}>
+        <div
+            className={
+                disabled
+                    ? `${inputClasses} ${styles.field__disabled}`
+                    : inputClasses
+            }
+        >
             <input
                 className={styles.input}
                 type="tel"
@@ -47,7 +59,6 @@ export const Input: FC<InputTypeProps> = ({ type, value, price,disabled, ...rest
         </div>
     );
 };
-
 
 const InitialDepositInput = (props: InitialDepositInputProps) => {
     const { focusHandler, isFocus, price, type, disabled, ...rest } = props;
@@ -65,8 +76,18 @@ const InitialDepositInput = (props: InitialDepositInputProps) => {
     };
 
     return (
-        <div className={disabled? `${inputClasses} ${styles.field__disabled}` : inputClasses} onClick={focusInput}>
-            <span>{price}</span>
+        <div
+            className={
+                disabled
+                    ? `${inputClasses} ${styles.field__disabled}`
+                    : inputClasses
+            }
+            onClick={focusInput}
+        >
+            <div className={styles.field__initialPrice}>
+                {price}
+                <span>₽</span>
+            </div>
             <div className={styles.field__percents}>
                 <input
                     className={styles.input}

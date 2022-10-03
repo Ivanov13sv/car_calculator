@@ -7,7 +7,7 @@ import { Modal } from 'components/UI/Modal';
 import { UIstate } from 'components/UIstate';
 import { BurgerButton } from 'components/UI/BurgerButton';
 import { IUserApplication } from 'types/IUserApplication';
-import { ApiService } from 'API';
+import { ApiService } from 'API/ApiService';
 import { NotificationProvider } from 'components/UI/Notification/NotificationProvider';
 import { INotification, INotificationType } from 'types/INotification';
 import styles from './style.module.scss';
@@ -120,19 +120,25 @@ export const CarCalculator = () => {
 
                     <div className={styles.calculator__result}>
                         <div className={styles.result__item}>
-                            <span className={styles.result__item_title}>Сумма договра лизинга</span>
+                            <span className={styles.result__item_title}>
+                                Сумма договра лизинга
+                            </span>
                             <div className={styles.result__item_body}>
                                 {numberWithSpaces(total)} <span>₽</span>
                             </div>
                         </div>
                         <div className={styles.result__item}>
-                            <span className={styles.result__item_title}>Ежемесячный платеж от</span>
+                            <span className={styles.result__item_title}>
+                                Ежемесячный платеж от
+                            </span>
                             <div className={styles.result__item_body}>
                                 {numberWithSpaces(monthPay)}
                                 <span>₽</span>
                             </div>
                         </div>
-                        <Button isLoading={loading}>Оставить заявку</Button>
+                        <Button disabled={loading} isLoading={loading}>
+                            Оставить заявку
+                        </Button>
                     </div>
                 </form>
             </section>

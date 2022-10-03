@@ -8,9 +8,10 @@
         z-index: 1;
     }
     &__title {
+        user-select: none;
         font-family: 'Nekst-Black';
         font-size: var(--fz-bg);
-        line-height: 90%;
+        line-height: 90%;    
         margin: 0;
         padding-bottom: 32px;
         max-width: 220px;
@@ -46,7 +47,7 @@
                 gap: 5px;
 
                 > span {
-                    line-height: 90%;
+                    line-height: 95%;
                 }
             }
         }
