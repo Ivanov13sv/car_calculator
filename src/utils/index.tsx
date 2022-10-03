@@ -7,7 +7,10 @@ export const getSliderProgress = (value: number, max: number, min: number) => {
 };
 
 export const numberWithSpaces = (number: number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    if (number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+    return '0';
 };
 
 export const stringToNumber = (str: string) => {
@@ -23,11 +26,13 @@ export const getMonthPay = (
     initialFee: number,
     months: number
 ) => {
-    return Math.ceil(
-        (carPrice - getInitialDeposit(initialFee, carPrice)) *
-            ((0.035 * Math.pow(1 + 0.035, months)) /
-                (Math.pow(1 + 0.035, months) - 1))
-    );
+    if (months && carPrice && initialFee) {
+        return Math.ceil(
+            (carPrice - getInitialDeposit(initialFee, carPrice)) *
+                ((0.035 * Math.pow(1 + 0.035, months)) /
+                    (Math.pow(1 + 0.035, months) - 1))
+        );
+    }
 };
 
 export const getTotalAmount = (

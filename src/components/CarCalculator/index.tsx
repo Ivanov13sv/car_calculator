@@ -31,7 +31,7 @@ export const CarCalculator = () => {
         setNotification([...notification, newNotification]);
     };
 
-    const monthPay = getMonthPay(carPrice, initialFee, months);
+    const monthPay = getMonthPay(carPrice, initialFee, months) || 0;
     const total = getTotalAmount(initialFee, carPrice, months, monthPay);
 
     const [modal, setModal] = useState(false);
