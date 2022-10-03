@@ -1,0 +1,26 @@
+@mixin removeTapHighlights {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin scrollbar {
+    scrollbar-color: var(--accent) #ebe7ff;
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #ebe7ff;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 5px;
+    }
+}

@@ -1,0 +1,67 @@
+@import 'style/variables';
+@import 'style/mixins';
+.field {
+    overflow: hidden;
+    outline: none;
+    background-color: var(--uiBg);
+    border: 2px solid var(--uiBg);
+    border-radius: var(--borderRadius);
+    height: 60px;
+    padding: 0 20px;
+    font-family: 'Nekst-Black';
+    font-size: var(--fz-md);
+    display: flex;
+    align-items: center;
+
+    &__disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &.initial {
+        padding: 0 4px 0 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .field__percents {
+            @include flexCenter;
+            border-radius: 12px;
+            width: 70px;
+            color: var(--grey);
+            background: #eeeeee;
+            font-size: 20px;
+            padding: 12px 0;
+            input {
+                text-align: center;
+                width: 29px;
+            }
+            &__focus {
+                background-color: white;
+            }
+
+            @media (min-width: $tablet-breakpoint) {
+                padding: 15px 0;
+            }
+        }
+    }
+
+    .input {
+        border: none;
+        background-color: inherit;
+        width: 100%;
+        outline: none;
+        color: var(--grey);
+
+    }
+
+    &__focus {
+        background-color: white;
+    }
+    span {
+        color: var(--grey);
+    }
+
+    @media (min-width: $tablet-breakpoint) {
+        height: 68px;
+    }
+}

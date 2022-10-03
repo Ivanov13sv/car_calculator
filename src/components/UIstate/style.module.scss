@@ -1,0 +1,66 @@
+@import 'components/UI/Button/style.module.scss';
+@import 'components/UI/Input/style.module.scss';
+@import 'components/UI/Slider/style.module.scss';
+@import 'style/_mixins.scss';
+.input {
+    .field {
+        width: 100%;
+    }
+    pointer-events: none;
+    position: relative;
+    background-size: 50;
+    .slider {
+        background-size: 50%;
+    }
+    &.disabled {
+        opacity: 0.5;
+    }
+    &.hover {
+        .slider {
+            &::-webkit-slider-thumb {
+                height: 25px;
+                width: 25px;
+            }
+        }
+    }
+    &.active {
+        .field {
+            background-color: white;
+        }
+    }
+}
+
+.wrapper {
+    padding: 15px;
+    .uiSection {
+        margin: 30px 0;
+        &__title {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        &__list {
+            @include flexCenter;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 30px;
+            .list__item {
+                @include flexCenter;
+            }
+        }
+    }
+}
+
+.button {
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 700;
+    width: 103px;
+    pointer-events: none;
+    &__hover {
+        background-color: var(--black);
+    }
+
+    &__pressed {
+        background-color: var(--grey);
+    }
+}

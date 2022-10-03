@@ -1,0 +1,18 @@
+@import 'style/variables';
+.wrapper{
+    padding: 45px 20px 64px;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    @media (min-width: $tablet-breakpoint){
+        padding: 67px 36px 156px;
+    }
+
+    @media (min-width: $laptop-breakpoint){
+        padding: 103px 48px;
+    }
+    @media (min-width: $desktop-breakpoint){
+        padding: 215px 48px 0px;
+    }
+
+}

@@ -1,0 +1,109 @@
+@import 'style/mixins';
+.notificationOverlay {
+    position: fixed;
+    right: 10px;
+    top: 50px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+@keyframes slideLeft {
+    0% {
+        margin-left: 120%;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+@keyframes slideRight {
+    0% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: 120%;
+    }
+}
+
+.notificationItem {
+    z-index: 600;
+    width: 300px;
+    overflow: hidden;
+    background: whitesmoke;
+    box-shadow: 0 0 5px 1px rgb(211, 211, 211);
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+    transition: transform 0.08s ease-in-out;
+    animation: slideLeft 0.4s forwards;
+
+    p {
+        display: flex;
+        align-items: center;
+        height: 30px;
+    }
+
+    svg {
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        > * {
+            stroke: grey;
+        }
+        &:hover {
+            transform: scale(1.1);
+            > * {
+                stroke: black;
+            }
+        }
+    }
+    .closeBtn {
+        font-size: var(--fz-sm);
+        color: grey;
+        cursor: pointer;
+        @include flexCenter;
+        background-color: inherit;
+        border: none;
+        width: 25px;
+        height: 25px;
+        &:hover {
+            transform: scale(1.2);
+            color: black;
+        }
+    }
+    .bar {
+        position: absolute;
+        height: 7px;
+        background: transparent;
+        bottom: 0;
+        left: 0;
+        border-radius: 0 0 5px 5px;
+    }
+
+    &.success {
+        .bar {
+            background: #00da00;
+        }
+    }
+    &.error {
+        .bar {
+            background: #ff5700;
+        }
+    }
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &.exit {
+        animation: slideRight 0.4s forwards;
+    }
+}
+
+.notificationWrapper {
+    position: relative;
+}

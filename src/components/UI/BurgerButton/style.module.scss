@@ -1,0 +1,85 @@
+@import 'style/variables';
+@import 'style/mixins';
+
+@keyframes shake {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.burgerBtn {
+    @include removeTapHighlights;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+
+    &::before,
+    &::after,
+    .middleLine {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: var(--grey);
+    }
+    &::before {
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+    }
+    &::after {
+        bottom: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+    }
+    .middleLine {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+
+    &__active {
+        &::before,
+        &::after,
+        .middleLine {
+            background-color: var(--accent);
+        }
+
+        &::before {
+            transform: rotate(225deg);
+            top: 9px;
+        }
+        &::after {
+            transform: rotate(-225deg);
+            top: 9px;
+        }
+        .middleLine {
+            width: 0;
+        }
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+    @media (min-width: $laptop-breakpoint) {
+        &:hover {
+            &::before,
+            &::after,
+            .middleLine {
+                background-color: var(--accent);
+            }
+        }
+    }
+}

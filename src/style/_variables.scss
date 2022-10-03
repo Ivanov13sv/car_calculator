@@ -1,0 +1,34 @@
+// media query breakpoints
+$tablet-breakpoint: 768px;
+$laptop-breakpoint: 1024px;
+$desktop-breakpoint: 1440px;
+
+
+:root {
+    // colors
+    --accent: #ff9514;
+    --black: #333333;
+    --grey: #575757;
+    --uiBg: #f3f3f4;
+    --disabled: rgba(255, 149, 20, 0.4);
+
+    // other
+    --borderRadius: 16px;
+
+    //font-size 
+    --fz-bg: 35px;
+    --fz-md: 22px;
+    --fz-sm: 14px;
+
+    @media (min-width: $tablet-breakpoint) {
+        --fz-bg: 54px;
+        --fz-sm: 16px;
+        --fz-md: 30px;
+    }
+
+
+} 
+
+
+
+

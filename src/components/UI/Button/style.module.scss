@@ -1,0 +1,40 @@
+@import 'style/variables';
+@import 'style/mixins';
+.button {
+    @include flexCenter;
+    @include removeTapHighlights;
+    line-height: 100%;
+    user-select: none;
+    padding: 7px 16px 11px;
+    flex-direction: column;
+    border-radius: 40px;
+    background-color: var(--accent);
+    color: white;
+    font-family: 'Nekst-Black';
+    border: none;
+    line-height: 91%;
+    font-size: var(--fz-md);
+    height: 60px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+    &_loading{
+        pointer-events: none;
+    }
+
+
+    @media (min-width: $tablet-breakpoint) {
+        height: 68px;
+    }
+    @media (min-width: $laptop-breakpoint) {
+        &:hover {
+            background-color: var(--black);
+        }
+    }
+    &:active {
+        background-color: var(--grey);
+    }
+    &:disabled {
+        background-color: var(--disabled);
+    }
+}

@@ -1,0 +1,131 @@
+@import 'style/variables';
+
+.calculator {
+    .burger {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        z-index: 1;
+    }
+    &__title {
+        font-family: 'Nekst-Black';
+        font-size: var(--fz-bg);
+        line-height: 90%;
+        margin: 0;
+        padding-bottom: 32px;
+        max-width: 220px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        .form__fields {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
+    &__result {
+        display: flex;
+        flex-direction: column;
+        gap: 29px;
+        padding-bottom: 5px;
+        .result__item {
+            &_title {
+                color: var(--grey);
+                font-size: var(--fz-sm);
+            }
+            &_body {
+                user-select: none;
+                display: flex;
+                font-family: 'Nekst-Black';
+                color: var(--black);
+                font-size: var(--fz-md);
+                gap: 5px;
+
+                > span {
+                    line-height: 90%;
+                }
+            }
+        }
+    }
+
+    .ui {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
+
+    @media (min-width: 400px) {
+        &__title {
+            max-width: 400px;
+        }
+    }
+    @media (min-width: $tablet-breakpoint) {
+        &__title {
+            max-width: 750px;
+            padding-bottom: 43px;
+        }
+        &__form {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            button {
+                width: 345px;
+            }
+            .form__fields {
+                gap: 42px;
+            }
+        }
+        &__result {
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 41px 45px;
+            padding-top: 9px;
+            .result__item {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+
+                div {
+                    width: 320px;
+                    padding-top: 5px;
+                    margin-bottom: -5px;
+                    font-size: 54px;
+                    span {
+                        font-size: 54px;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: $laptop-breakpoint) {
+        &__result {
+            gap: 44px 160px;
+        }
+    }
+
+    @media (min-width: $desktop-breakpoint) {
+        &__title {
+            padding-bottom: 32px;
+        }
+        gap: 33px;
+        &__form {
+            button {
+                width: 426px;
+            }
+            .form__fields {
+                flex-direction: row;
+                gap: 33px;
+            }
+        }
+        &__result {
+            align-items: center;
+
+            padding-top: 12px;
+            gap: 138px;
+        }
+    }
+}
