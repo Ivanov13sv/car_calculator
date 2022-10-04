@@ -110,7 +110,7 @@ export const CarCalculator = () => {
                             id={getId()}
                             type="rent"
                             label="Срок лизинга"
-                            min={10}
+                            min={1}
                             max={60}
                             value={months}
                             setValue={setMonths}
